@@ -118,11 +118,11 @@ const executeStatementSchema = z.object({
     .string()
     .min(1)
     .optional()
-    .describe("Second-step confirmation id previously returned by execute_statement when the client does not support interactive confirmation."),
+    .describe("Second-step confirmation id previously returned by execute_statement when the client does not support interactive confirmation. Receiving a confirmationId is not final authorization. After the confirmationId is returned, ask the user again for explicit approval before making the second call."),
   confirmExecution: z
     .boolean()
     .optional()
-    .describe("Set to true on the second execute_statement call after the user explicitly confirms execution.")
+    .describe("Set this to the JSON boolean value true on the second execute_statement call after the user explicitly confirms execution again. Do not pass the string \"true\". Do not send confirmExecution=true on the first call.")
 }).strict();
 const redisKeySchema = z.object({
   databaseKey: z
@@ -1147,7 +1147,7 @@ export function buildToolRegistry(): ToolDefinition[] {
         whenNotToUse:
           "Do not use this for SELECT or other readonly SQL. Do not use it on targets configured as readonly. Avoid it unless a write is truly required.",
         inputExpectations:
-          "Requires databaseKey using the configured target key from list_databases.key, plus one non-query SQL statement. Manual user confirmation is always required before execution. If the client supports interactive confirmation, the server requests it directly. Otherwise the first call returns confirmation details and a confirmationId, and the second call must resend the same SQL with confirmationId and confirmExecution=true. High-risk statements such as UPDATE or DELETE without WHERE are specially highlighted. When SQL needs an explicit database name, refer to list_databases.databaseName, not list_databases.key.",
+          "Requires databaseKey using the configured writable SQL target key from list_databases.key, plus one non-query SQL statement. Manual user confirmation is always required before execution. If the client supports interactive confirmation, the server requests it directly. Otherwise this becomes a strict two-step flow: the first call returns confirmation details and a confirmationId, and that confirmationId is not final authorization. After the confirmationId is returned, ask the user again for a second explicit approval, then make the second call with the same databaseKey, the same sql, the same params, the returned confirmationId, and confirmExecution set to the JSON boolean true. Never treat the user's original write request as that second confirmation, and never pass the string \"true\" for confirmExecution. High-risk statements such as UPDATE or DELETE without WHERE are specially highlighted. When SQL needs an explicit database name, refer to list_databases.databaseName, not list_databases.key.",
         databaseSupport: "Writable SQL targets only: MySQL, Oracle, PostgreSQL, and openGauss when readonly is false."
       }),
       executeStatementSchema,
