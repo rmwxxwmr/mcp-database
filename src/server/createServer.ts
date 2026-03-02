@@ -13,6 +13,7 @@ import { log } from "../core/logger.js";
 import { createClient } from "../db/clientFactory.js";
 import type { RedisDatabaseAdapter, SqlDatabaseAdapter } from "../db/types.js";
 import { buildToolRegistry } from "./toolRegistry.js";
+import { SERVICE_NAME, SERVICE_VERSION } from "../version.js";
 
 interface PendingStatementConfirmation {
   databaseKey: string;
@@ -195,8 +196,8 @@ export async function createServer(config: LoadedConfig): Promise<Server> {
 
   const server = new Server(
     {
-      name: "mcp-database-service",
-      version: "0.1.0"
+      name: SERVICE_NAME,
+      version: SERVICE_VERSION
     },
     {
       capabilities: {
