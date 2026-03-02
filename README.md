@@ -1,3 +1,5 @@
+English | [简体中文](./README.zh-CN.md)
+
 # MCP Database Service
 
 A multi-database MCP server for Model Context Protocol (MCP), written in TypeScript.
