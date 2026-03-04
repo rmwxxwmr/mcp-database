@@ -13,7 +13,7 @@ This project is intended for AI agents and MCP clients that need safe database d
 Install from npm:
 
 ```powershell
-npm install -g @rmwxxwmr/mcp-database-service
+npm install -g @jadchene/mcp-database-service
 mcp-database-service --config ./config/databases.example.json
 ```
 
@@ -158,7 +158,7 @@ Recommended options:
 1. Install from npm:
 
 ```powershell
-npm install -g @rmwxxwmr/mcp-database-service
+npm install -g @jadchene/mcp-database-service
 ```
 
 2. Or install from the local source tree with the helper script:
@@ -179,7 +179,7 @@ The helper scripts install dependencies, build the project, create a tarball wit
 
 ```powershell
 npm pack
-npm install -g .\mcp-database-service-0.1.0.tgz
+npm install -g .\jadchene-mcp-database-service-0.1.5.tgz
 ```
 
 The package only publishes runtime files through the `files` field, so packaged installation includes `dist` and the runtime README/config example, not the whole source tree.

@@ -13,7 +13,7 @@
 从 npm 安装：
 
 ```powershell
-npm install -g @rmwxxwmr/mcp-database-service
+npm install -g @jadchene/mcp-database-service
 mcp-database-service --config ./config/databases.example.json
 ```
 
@@ -158,7 +158,7 @@ node dist/index.js --config ./config/databases.example.json
 1. 直接从 npm 安装：
 
 ```powershell
-npm install -g @rmwxxwmr/mcp-database-service
+npm install -g @jadchene/mcp-database-service
 ```
 
 2. 或从本地源码树通过辅助脚本安装：
@@ -179,7 +179,7 @@ sh ./scripts/install-global.sh
 
 ```powershell
 npm pack
-npm install -g .\mcp-database-service-0.1.0.tgz
+npm install -g .\jadchene-mcp-database-service-0.1.5.tgz
 ```
 
 由于 `files` 字段只发布运行时文件，所以打包安装时会包含 `dist`、运行时 README 和配置示例，而不是整个源码目录。

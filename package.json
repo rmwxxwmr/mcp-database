@@ -1,5 +1,5 @@
 {
-  "name": "@rmwxxwmr/mcp-database-service",
+  "name": "@jadchene/mcp-database-service",
   "version": "0.1.5",
   "description": "A multi-database MCP server with lazy short-lived connections, strong read-only defaults, and explicit confirmation for writable SQL.",
   "type": "module",
@@ -40,11 +40,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rmwxxwmr/mcp-database.git"
+    "url": "git+https://github.com/jadchene/mcp-database.git"
   },
-  "homepage": "https://github.com/rmwxxwmr/mcp-database#readme",
+  "homepage": "https://github.com/jadchene/mcp-database#readme",
   "bugs": {
-    "url": "https://github.com/rmwxxwmr/mcp-database/issues"
+    "url": "https://github.com/jadchene/mcp-database/issues"
   },
   "license": "MIT",
   "dependencies": {
