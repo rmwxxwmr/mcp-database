@@ -218,6 +218,58 @@ Example MCP server configuration:
 }
 ```
 
+## MCP Client Configuration
+
+The following examples show how to register this MCP server in common AI clients. Replace the config path with your own local file path. To keep the setup portable, the examples below intentionally avoid absolute paths.
+
+### Codex
+
+`~/.codex/config.toml`
+
+```toml
+[mcp_servers.database]
+command = "mcp-database-service"
+args = ["--config", "./config/databases.json"]
+```
+
+### Gemini CLI
+
+`settings.json`
+
+```json
+{
+  "mcpServers": {
+    "database": {
+      "type": "stdio",
+      "command": "mcp-database-service",
+      "args": [
+        "--config",
+        "./config/databases.json"
+      ]
+    }
+  }
+}
+```
+
+### Claude Code
+
+`.claude.json`
+
+```json
+{
+  "mcpServers": {
+    "database": {
+      "type": "stdio",
+      "command": "mcp-database-service",
+      "args": [
+        "--config",
+        "./config/databases.json"
+      ]
+    }
+  }
+}
+```
+
 ## Config Reload
 
 - The server loads the JSON config file at startup and keeps a validated in-memory snapshot.
