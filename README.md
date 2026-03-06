@@ -25,6 +25,19 @@ npm run build
 node dist/index.js --config ./config/databases.example.json
 ```
 
+## Skill Integration (Recommended)
+
+For AI assistants (Codex / Gemini / similar agents), this repository includes a database MCP skill that improves workflow consistency and write safety.
+
+- Skill path: `skills/database-mcp/SKILL.md`
+- Benefits:
+  - Standardized database discovery and schema inspection flow
+  - Query-first defaults with safer result-size and column-selection behavior
+  - Clear two-step confirmation discipline for write operations
+  - Better coordination with SQL performance troubleshooting workflows
+
+When your agent supports skills, load this skill before using database MCP tools for best results.
+
 ## Support Matrix
 
 | Database | Query Tools | Metadata Tools | `explain_query` | `analyze_query` | Write Support |

@@ -25,6 +25,19 @@ npm run build
 node dist/index.js --config ./config/databases.example.json
 ```
 
+## Skill 集成（推荐）
+
+对于 Codex、Gemini 等 AI 助手，仓库内已提供 `database-mcp` skill，配合使用可显著提升流程一致性与写操作安全性。
+
+- Skill 路径：`skills/database-mcp/SKILL.md`
+- 主要收益：
+  - 统一数据库发现与表结构检查流程
+  - 默认查询优先，结果规模与列选择更安全
+  - 写操作遵循清晰的两步确认纪律
+  - 与 SQL 性能排查工作流配合更稳定
+
+若你的 AI 客户端支持 Skills，建议在调用 database MCP 工具前先加载该 skill。
+
 ## 支持矩阵
 
 | 数据库 | 查询工具 | 元数据工具 | `explain_query` | `analyze_query` | 写操作支持 |
